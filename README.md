@@ -1,4 +1,4 @@
-# PlantCare AI 🌿
+# PlantLens AI 🌿
 
 > **Simple, AI-powered plant health assistant powered by Gemma open-weight vision models.**  
 > Spot leaf diseases early, get actionable organic care steps, and spend less time on screens caring for real plants.
@@ -34,7 +34,7 @@ Home gardeners, urban plant parents, and allotment growers often notice unhealth
 Most existing garden apps lock users behind paywalls, aggressive paywalls, or endless screen interactions that disconnect them from their garden.
 
 ## 🪴 Solution
-**PlantCare AI** provides instant botanical triage:
+**PlantLens AI** provides instant botanical triage:
 1. A user uploads a photo of a plant or leaf (or snaps one with their mobile camera).
 2. **Gemma** analyzes the image and returns structured botanical intelligence:
    - Plant identification & scientific taxonomy
