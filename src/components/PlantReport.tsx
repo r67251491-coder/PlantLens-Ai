@@ -111,7 +111,7 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
       </div>
 
       {/* Main Report Card */}
-      <div className="bg-white rounded-3xl border border-stone-200 shadow-card overflow-hidden">
+      <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-stone-200/80 shadow-card overflow-hidden">
         {/* Header Banner - Matches ## 🪴 Your Plant Report */}
         <div className="p-6 sm:p-8 bg-gradient-to-br from-brand-50/70 via-white to-stone-50 border-b border-stone-100">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">

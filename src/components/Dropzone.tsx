@@ -94,10 +94,10 @@ export function Dropzone({ onAnalyze, onSelectDemo, isAnalyzing }: DropzoneProps
         onDrop={handleDrop}
         className={`relative border-2 border-dashed rounded-3xl p-6 sm:p-10 transition-all text-center ${
           dragActive
-            ? "border-brand-500 bg-brand-50/70 scale-[1.01]"
+            ? "border-brand-500 bg-brand-50/80 backdrop-blur-md scale-[1.01]"
             : preview
-            ? "border-brand-300 bg-white"
-            : "border-stone-200 bg-stone-50/60 hover:border-brand-300 hover:bg-stone-50"
+            ? "border-brand-300 bg-white/90 backdrop-blur-md"
+            : "border-stone-200/80 bg-white/75 backdrop-blur-md hover:border-brand-300 hover:bg-white/85"
         } shadow-soft`}
       >
         <input
@@ -220,7 +220,7 @@ export function Dropzone({ onAnalyze, onSelectDemo, isAnalyzing }: DropzoneProps
               key={sample.id}
               type="button"
               onClick={() => onSelectDemo(sample)}
-              className="group text-left p-3 rounded-2xl bg-white border border-stone-200 hover:border-brand-400 hover:shadow-card transition flex flex-col justify-between cursor-pointer"
+              className="group text-left p-3 rounded-2xl bg-white/85 backdrop-blur-md border border-stone-200/80 hover:border-brand-400 hover:shadow-card transition flex flex-col justify-between cursor-pointer"
             >
               <div className="aspect-square w-full rounded-xl overflow-hidden mb-2.5 bg-stone-100 relative">
                 <img

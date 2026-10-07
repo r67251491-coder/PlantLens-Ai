@@ -31,7 +31,7 @@ export function GemmaExplainer() {
       </div>
 
       {/* 2. Why Gemma? Precise Role Distinction */}
-      <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-card space-y-6">
+      <div className="bg-white/85 backdrop-blur-md rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-card space-y-6">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center flex-shrink-0">
             <Sparkles className="w-6 h-6" />
@@ -77,7 +77,7 @@ export function GemmaExplainer() {
 
       {/* 3. Why Open-Weight AI Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white border border-stone-200 shadow-soft space-y-2.5">
+        <div className="p-5 rounded-2xl bg-white/85 backdrop-blur-md border border-stone-200/80 shadow-soft space-y-2.5">
           <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
             <Layers className="w-5 h-5" />
           </div>
@@ -87,7 +87,7 @@ export function GemmaExplainer() {
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-stone-200 shadow-soft space-y-2.5">
+        <div className="p-5 rounded-2xl bg-white/85 backdrop-blur-md border border-stone-200/80 shadow-soft space-y-2.5">
           <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center">
             <Terminal className="w-5 h-5" />
           </div>
@@ -97,7 +97,7 @@ export function GemmaExplainer() {
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-stone-200 shadow-soft space-y-2.5">
+        <div className="p-5 rounded-2xl bg-white/85 backdrop-blur-md border border-stone-200/80 shadow-soft space-y-2.5">
           <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
             <Cpu className="w-5 h-5" />
           </div>
@@ -107,7 +107,7 @@ export function GemmaExplainer() {
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-stone-200 shadow-soft space-y-2.5">
+        <div className="p-5 rounded-2xl bg-white/85 backdrop-blur-md border border-stone-200/80 shadow-soft space-y-2.5">
           <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center">
             <Lock className="w-5 h-5" />
           </div>
@@ -145,7 +145,7 @@ export function GemmaExplainer() {
       </div>
 
       {/* Future Improvements */}
-      <div className="bg-stone-50 rounded-3xl border border-stone-200 p-6 sm:p-8 space-y-4">
+      <div className="bg-white/80 backdrop-blur-md rounded-3xl border border-stone-200/80 p-6 sm:p-8 space-y-4">
         <div className="flex items-center gap-2">
           <Compass className="w-5 h-5 text-stone-700" />
           <h3 className="text-lg font-bold text-stone-900">
