@@ -19,9 +19,7 @@ import {
   Check,
   ShieldAlert,
   Footprints,
-  Info,
   Bug,
-  ThermometerSnowflake,
   Share2
 } from "lucide-react";
 
@@ -42,57 +40,33 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
         return {
           icon: CheckCircle2,
           color: "text-emerald-700 bg-emerald-50 border-emerald-200",
-          badgeColor: "bg-emerald-600 text-white",
-          ringColor: "ring-emerald-500/20",
-          headline: "Healthy & Thriving",
+          headline: "🌿 Healthy",
         };
       case "Mostly Healthy":
         return {
           icon: CheckCircle2,
           color: "text-teal-700 bg-teal-50 border-teal-200",
-          badgeColor: "bg-teal-600 text-white",
-          ringColor: "ring-teal-500/20",
-          headline: "Mostly Healthy",
+          headline: "🌱 Mostly Healthy",
         };
       case "Needs Attention":
         return {
           icon: AlertTriangle,
           color: "text-amber-800 bg-amber-50 border-amber-200",
-          badgeColor: "bg-amber-600 text-white",
-          ringColor: "ring-amber-500/20",
           headline: "⚠️ Needs Attention",
         };
       case "Unhealthy":
         return {
           icon: AlertOctagon,
           color: "text-rose-800 bg-rose-50 border-rose-200",
-          badgeColor: "bg-rose-600 text-white",
-          ringColor: "ring-rose-500/20",
-          headline: "🚨 Unhealthy / Distressed",
+          headline: "🚨 Unhealthy",
         };
       default:
         return {
           icon: HelpCircle,
           color: "text-stone-800 bg-stone-100 border-stone-200",
-          badgeColor: "bg-stone-600 text-white",
-          ringColor: "ring-stone-500/20",
-          headline: "Unknown / Inconclusive",
+          headline: "❓ Unknown",
         };
     }
-  };
-
-  const getConfidenceBadge = (confidence: ConfidenceLevel) => {
-    const style =
-      confidence === "High"
-        ? "bg-emerald-100 text-emerald-800 border-emerald-300"
-        : confidence === "Medium"
-        ? "bg-amber-100 text-amber-800 border-amber-300"
-        : "bg-stone-100 text-stone-700 border-stone-300";
-    return (
-      <span className={`text-xs px-2.5 py-0.5 rounded-full font-semibold border ${style}`}>
-        Confidence: {confidence}
-      </span>
-    );
   };
 
   const statusConfig = getStatusConfig(result.health_status);
@@ -101,7 +75,7 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
   const handleShare = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(
-        `PlantLens AI Report for ${result.plant_name}: Status is ${result.health_status}. Analysis by Gemma open-weight AI.`
+        `PlantLens AI Report for ${result.plant_name}:\nPlant: ${result.plant_name}\nHealth: ${result.health_status}\nConfidence: ${result.plant_confidence}`
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -138,28 +112,46 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
 
       {/* Main Report Card */}
       <div className="bg-white rounded-3xl border border-stone-200 shadow-card overflow-hidden">
-        {/* Header Banner */}
+        {/* Header Banner - Matches ## 🪴 Your Plant Report */}
         <div className="p-6 sm:p-8 bg-gradient-to-br from-brand-50/70 via-white to-stone-50 border-b border-stone-100">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs uppercase tracking-wider font-bold text-brand-700 bg-brand-100/80 px-2.5 py-1 rounded-md">
-                  🪴 Your Plant Report
-                </span>
-                {getConfidenceBadge(result.plant_confidence)}
+            <div className="space-y-3">
+              <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight flex items-center gap-2">
+                <span>🪴 Your Plant Report</span>
+              </h2>
+
+              {/* Exact format: **Plant:** ... **Health:** ... **Confidence:** ... */}
+              <div className="p-4 rounded-2xl bg-white/90 border border-stone-200/90 shadow-2xs space-y-1.5 font-mono text-sm sm:text-base">
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="font-bold text-stone-900">Plant:</span>
+                  <span className="font-semibold text-brand-800">{result.plant_name}</span>
+                  {result.scientific_name && result.scientific_name !== "Unable to determine reliably from this image." && (
+                    <span className="text-xs text-stone-500 italic">({result.scientific_name})</span>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="font-bold text-stone-900">Health:</span>
+                  <span className={`font-semibold px-2 py-0.5 rounded-md text-xs sm:text-sm ${
+                    result.health_status === "Healthy"
+                      ? "bg-emerald-100 text-emerald-800"
+                      : result.health_status === "Needs Attention"
+                      ? "bg-amber-100 text-amber-800"
+                      : "bg-stone-100 text-stone-800"
+                  }`}>
+                    {result.health_status}
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="font-bold text-stone-900">Confidence:</span>
+                  <span className="font-semibold text-stone-700">{result.plant_confidence}</span>
+                </div>
               </div>
-
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
-                {result.plant_name}
-              </h1>
-
-              <p className="text-sm italic text-stone-500 font-medium">
-                Scientific name: {result.scientific_name}
-              </p>
             </div>
 
             {imagePreviewUrl && (
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-white shadow-md flex-shrink-0 bg-stone-100">
+              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-white shadow-md flex-shrink-0 bg-stone-100">
                 <img
                   src={imagePreviewUrl}
                   alt={result.plant_name}
@@ -172,39 +164,35 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
 
         {/* Report Content Body */}
         <div className="p-6 sm:p-8 space-y-8">
-          {/* 1. ❤️ Plant Health Visual Section */}
+          {/* 1. ❤️ Plant Health Section */}
           <section className="space-y-3">
-            <h2 className="text-xs uppercase tracking-wider font-bold text-stone-500 flex items-center gap-1.5">
-              <span>❤️ Plant Health Status</span>
-            </h2>
+            <h3 className="text-sm uppercase tracking-wider font-extrabold text-stone-700 flex items-center gap-1.5">
+              <span>❤️ Plant Health</span>
+            </h3>
 
-            <div className={`p-5 rounded-2xl border ${statusConfig.color} shadow-xs`}>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-white shadow-xs flex items-center justify-center flex-shrink-0">
-                  <StatusIcon className="w-7 h-7 text-current" />
+            <div className={`p-5 rounded-2xl border ${statusConfig.color} shadow-xs space-y-2`}>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white shadow-xs flex items-center justify-center flex-shrink-0">
+                  <StatusIcon className="w-6 h-6 text-current" />
                 </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-bold text-stone-900">
-                      {statusConfig.headline}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-stone-700 leading-relaxed font-normal">
-                    &ldquo;{result.health_summary}&rdquo;
-                  </p>
-                </div>
+                <h3 className="text-xl font-black text-stone-900">
+                  {statusConfig.headline}
+                </h3>
               </div>
+              <p className="text-sm text-stone-800 leading-relaxed font-medium italic pl-1">
+                &ldquo;{result.health_summary}&rdquo;
+              </p>
             </div>
           </section>
 
           {/* 2. 🦠 POSSIBLE DISEASE SECTION (Crucial Section) */}
           <section className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-xs uppercase tracking-wider font-bold text-stone-500 flex items-center gap-1.5">
-                <span>🦠 Possible Disease &amp; Pathology Assessment</span>
-              </h2>
-              <span className="text-xs text-stone-400 font-medium">
-                {result.possible_diseases.length} potential issue(s) evaluated
+              <h3 className="text-sm uppercase tracking-wider font-extrabold text-stone-700 flex items-center gap-1.5">
+                <span>🦠 Possible Disease</span>
+              </h3>
+              <span className="text-xs text-stone-500 font-medium">
+                {result.possible_diseases.length} condition(s) evaluated
               </span>
             </div>
 
@@ -213,14 +201,14 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
                 {result.possible_diseases.map((disease, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-2.5 transition hover:shadow-xs"
+                    className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/90 space-y-2.5 transition hover:shadow-xs"
                   >
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <div className="flex items-center gap-2">
                         <Bug className="w-5 h-5 text-amber-700" />
-                        <h3 className="text-base font-bold text-stone-900">
+                        <h4 className="text-base font-bold text-stone-900">
                           {disease.name}
-                        </h3>
+                        </h4>
                       </div>
                       <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
                         Confidence: <strong>{disease.confidence}</strong>
@@ -228,7 +216,7 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
                     </div>
 
                     <div className="text-sm text-stone-700 leading-relaxed pl-7">
-                      <span className="font-semibold text-stone-900">Visual Reason: </span>
+                      <span className="font-semibold text-stone-900">Reason: </span>
                       &ldquo;{disease.reason}&rdquo;
                     </div>
                   </div>
@@ -238,16 +226,16 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
               <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-emerald-600" />
                 <span>
-                  <strong>No major pathology or disease detected.</strong> Foliage appears clean and free of acute fungal or bacterial lesions.
+                  <strong>No acute disease identified.</strong> Foliage appears clean and free of obvious fungal or bacterial spotting.
                 </span>
               </div>
             )}
 
             {/* Crucial Warning Disclaimer */}
-            <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-stone-600 text-xs flex items-start gap-3">
-              <ShieldAlert className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+            <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200 text-amber-900 text-xs flex items-start gap-3">
+              <ShieldAlert className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
-                <strong>Disclaimer:</strong> This is an AI-based visual assessment and is not a professional plant disease diagnosis. Soil tests, microscopic pathology, and regional extension advice should be consulted before making extensive agricultural interventions.
+                <strong>⚠️ Warning:</strong> This is an AI-based visual assessment and is not a professional plant disease diagnosis.
               </p>
             </div>
           </section>
@@ -256,20 +244,18 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             {/* Symptoms */}
             <div className="p-5 rounded-2xl bg-stone-50/80 border border-stone-200 space-y-3">
-              <h3 className="text-xs uppercase tracking-wider font-bold text-stone-600 flex items-center gap-1.5">
+              <h3 className="text-xs uppercase tracking-wider font-extrabold text-stone-700 flex items-center gap-1.5">
                 <span>👁️ Visible Symptoms</span>
               </h3>
               {result.visible_symptoms && result.visible_symptoms.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
+                <ul className="space-y-1.5 text-xs text-stone-800 font-medium">
                   {result.visible_symptoms.map((symptom, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-stone-800 border border-stone-200 shadow-2xs"
-                    >
-                      • {symptom}
-                    </span>
+                    <li key={i} className="flex items-start gap-2 bg-white p-2 rounded-lg border border-stone-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 flex-shrink-0" />
+                      <span>{symptom}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               ) : (
                 <p className="text-xs text-stone-400 italic">No adverse visible symptoms spotted.</p>
               )}
@@ -277,31 +263,29 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
 
             {/* Possible Causes */}
             <div className="p-5 rounded-2xl bg-stone-50/80 border border-stone-200 space-y-3">
-              <h3 className="text-xs uppercase tracking-wider font-bold text-stone-600 flex items-center gap-1.5">
+              <h3 className="text-xs uppercase tracking-wider font-extrabold text-stone-700 flex items-center gap-1.5">
                 <span>🔍 Possible Causes</span>
               </h3>
               {result.possible_causes && result.possible_causes.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
+                <ul className="space-y-1.5 text-xs text-stone-800 font-medium">
                   {result.possible_causes.map((cause, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-stone-800 border border-stone-200 shadow-2xs"
-                    >
-                      • {cause}
-                    </span>
+                    <li key={i} className="flex items-start gap-2 bg-white p-2 rounded-lg border border-stone-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-stone-500 mt-1.5 flex-shrink-0" />
+                      <span>{cause}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               ) : (
                 <p className="text-xs text-stone-400 italic">No environmental stress factors identified.</p>
               )}
             </div>
           </section>
 
-          {/* 4. 💧 CARE RECOMMENDATIONS (Water, Sun, Soil) */}
+          {/* 4. 💧 WATERING & SUNLIGHT */}
           <section className="space-y-4 pt-2">
-            <h2 className="text-xs uppercase tracking-wider font-bold text-stone-500">
-              💧 Environment &amp; Care Requirements
-            </h2>
+            <h3 className="text-xs uppercase tracking-wider font-extrabold text-stone-700 flex items-center gap-1.5">
+              <span>💧 Watering &amp; Environment</span>
+            </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {/* Watering */}
@@ -310,7 +294,7 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
                   <Droplets className="w-4 h-4 text-blue-600" />
                   <span>Watering</span>
                 </div>
-                <p className="text-xs text-stone-700 leading-relaxed">
+                <p className="text-xs text-stone-700 leading-relaxed font-semibold">
                   {result.watering}
                 </p>
               </div>
@@ -321,7 +305,7 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
                   <Sun className="w-4 h-4 text-amber-600" />
                   <span>Sunlight</span>
                 </div>
-                <p className="text-xs text-stone-700 leading-relaxed">
+                <p className="text-xs text-stone-700 leading-relaxed font-semibold">
                   {result.sunlight}
                 </p>
               </div>
@@ -330,20 +314,20 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
               <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 space-y-2">
                 <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
                   <Layers className="w-4 h-4 text-emerald-600" />
-                  <span>Soil &amp; Potting</span>
+                  <span>Soil</span>
                 </div>
-                <p className="text-xs text-stone-700 leading-relaxed">
+                <p className="text-xs text-stone-700 leading-relaxed font-semibold">
                   {result.soil}
                 </p>
               </div>
             </div>
           </section>
 
-          {/* 5. 📋 RECOMMENDED ACTIONS (3-5 Practical Steps) */}
+          {/* 5. RECOMMENDED ACTIONS */}
           <section className="space-y-3 pt-2">
-            <h2 className="text-xs uppercase tracking-wider font-bold text-stone-500">
-              📋 Recommended Practical Actions
-            </h2>
+            <h3 className="text-xs uppercase tracking-wider font-extrabold text-stone-700">
+              📋 Recommended Actions
+            </h3>
 
             <div className="space-y-2.5">
               {result.recommended_actions.map((action, i) => (
@@ -354,46 +338,45 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
                   <span className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
                     {i + 1}
                   </span>
-                  <span className="leading-relaxed">{action}</span>
+                  <span className="leading-relaxed font-medium">{action}</span>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* 6. 🪴 TOUCH GRASS FEATURE (Mandatory Challenge Highlight) */}
+          {/* 6. 🪴 TOUCH GRASS FEATURE (Hacktoberfest Theme) */}
           <section className="pt-4">
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 text-white p-6 sm:p-8 shadow-elevated border border-brand-700/50">
-              {/* Subtle foliage background effect */}
               <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative space-y-5">
                 <div className="flex items-center gap-2 text-brand-300 text-xs uppercase tracking-wider font-bold">
                   <Footprints className="w-4 h-4 text-brand-400" />
-                  <span>Hacktoberfest • Touch Grass Task</span>
+                  <span>Hacktoberfest 2024 • Touch Grass Challenge</span>
                 </div>
 
                 <div className="space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+                  <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
                     🪴 Now Go Take Care of It
-                  </h2>
+                  </h1>
                   <p className="text-brand-200 text-xs sm:text-sm font-medium">
-                    The screen should be the shortest part of your plant journey: Photo → AI insight → Go outside → Care for plant.
+                    Photo → AI insight → Go outside → Care for plant. The screen should be the shortest part of the experience.
                   </p>
                 </div>
 
-                {/* The single outdoor task */}
+                {/* The single outdoor action */}
                 <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15">
-                  <p className="text-base sm:text-lg font-medium text-brand-50 italic leading-relaxed">
-                    &ldquo;{result.touch_grass_task}&rdquo;
+                  <p className="text-base sm:text-lg font-bold text-brand-50 italic leading-relaxed">
+                    ***{result.touch_grass_task}***
                   </p>
                 </div>
 
-                {/* Interactive Action Button */}
+                {/* Interactive Action Button: ### ✓ I Did It */}
                 {!didTouchGrass ? (
                   <button
                     type="button"
                     onClick={() => setDidTouchGrass(true)}
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-sm bg-brand-400 hover:bg-brand-300 text-brand-950 transition-all shadow-md shadow-brand-900/50 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-black text-sm bg-brand-400 hover:bg-brand-300 text-brand-950 transition-all shadow-md shadow-brand-900/50 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <Check className="w-4 h-4 stroke-[3]" />
                     <span>✓ I Did It</span>
@@ -402,10 +385,10 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
                   <div className="p-5 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-100 space-y-2 animate-fadeIn">
                     <div className="flex items-center gap-2 text-emerald-300 font-bold text-base">
                       <Sparkles className="w-5 h-5 text-emerald-300 animate-spin" />
-                      <span>🪴 Task Completed!</span>
+                      <span>🪴 Mission Complete!</span>
                     </div>
-                    <p className="text-sm font-medium text-emerald-50 leading-relaxed">
-                      <strong>🪴 Nice! You just spent less time on your screen and more time caring for something real.</strong>
+                    <p className="text-sm sm:text-base font-bold text-emerald-50 leading-relaxed">
+                      🪴 Nice! You just spent less time on your screen and more time caring for something real.
                     </p>
                   </div>
                 )}

@@ -201,16 +201,16 @@ export function Dropzone({ onAnalyze, onSelectDemo, isAnalyzing }: DropzoneProps
       </div>
 
       {/* Try Demo Mode Section */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-200/60 pb-2">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-brand-600" />
-            <h4 className="text-sm font-bold text-stone-800 tracking-tight">
-              Or Try Demo Cases (Instant, No API Key Required)
-            </h4>
+            <Sparkles className="w-5 h-5 text-brand-600" />
+            <h3 className="text-base font-black text-stone-900 tracking-tight">
+              Try Demo
+            </h3>
           </div>
-          <span className="text-xs text-stone-500 font-medium hidden sm:inline">
-            5 Test Scenarios Available
+          <span className="text-xs text-stone-500 font-medium">
+            Test the application instantly without uploading a photo
           </span>
         </div>
 

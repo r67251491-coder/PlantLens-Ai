@@ -3,13 +3,13 @@ import { DemoSample } from "@/types/plant";
 export const DEMO_SAMPLES: DemoSample[] = [
   {
     id: "healthy-monstera",
-    title: "Healthy Monstera",
-    subtitle: "Vibrant foliage, active growth, zero lesions",
+    title: "1. Healthy Plant",
+    subtitle: "Monstera (Vibrant foliage, zero lesions)",
     type: "healthy",
     imageUrl: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=800&q=80",
     analysis: {
       is_plant: true,
-      plant_name: "Monstera Deliciosa (Swiss Cheese Plant)",
+      plant_name: "Monstera Deliciosa",
       scientific_name: "Monstera deliciosa",
       plant_confidence: "High",
       health_status: "Healthy",
@@ -25,78 +25,73 @@ export const DEMO_SAMPLES: DemoSample[] = [
         "Balanced watering regimen",
         "Adequate indirect luminosity"
       ],
-      watering: "Moderate watering. Allow top 2-3 inches of soil to dry out between waterings.",
-      sunlight: "Bright, indirect sunlight. Avoid direct afternoon sun to prevent leaf scorching.",
-      soil: "Well-draining peat-based potting mix amended with perlite and orchid bark.",
+      watering: "Moderate watering",
+      sunlight: "6-8 hours of sunlight (bright indirect)",
+      soil: "Well-draining peat-based potting mix amended with perlite.",
       recommended_actions: [
         "Check soil moisture with your finger before your next watering cycle.",
         "Gently wipe down the foliage with a soft, damp cloth to remove household dust.",
         "Rotate the pot 90 degrees every week to promote symmetrical growth toward ambient light.",
-        "Maintain normal ambient room temperature between 18°C and 27°C (65°F - 80°F)."
+        "Maintain normal ambient room temperature between 18°C and 27°C."
       ],
       care_tips: [
         "Provide a moss pole or trellis support as aerial roots develop.",
-        "Feed lightly with a balanced liquid houseplant fertilizer once monthly in spring and summer."
+        "Feed lightly with a balanced liquid houseplant fertilizer once monthly in spring."
       ],
       touch_grass_task: "Step outside into the fresh air, wipe both sides of the largest leaf with a clean damp cotton cloth, and check underneath for any lurking dust or spider webbing."
     }
   },
   {
     id: "diseased-tomato",
-    title: "Tomato (Early Blight)",
-    subtitle: "Concentric rings, yellow chlorotic halo, lower foliage stress",
+    title: "2. Visible Disease Symptoms",
+    subtitle: "Tomato (Early blight dark concentric lesions)",
     type: "diseased",
     imageUrl: "https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=800&q=80",
     analysis: {
       is_plant: true,
-      plant_name: "Garden Tomato",
+      plant_name: "Tomato",
       scientific_name: "Solanum lycopersicum",
       plant_confidence: "High",
       health_status: "Needs Attention",
-      health_summary: "Several dark necrotic lesions with concentric rings and surrounding chlorotic yellow halos appear on the lower foliage, indicative of fungal leaf spot stress.",
+      health_summary: "Some visible symptoms suggest this plant may be experiencing stress.",
       possible_diseases: [
         {
-          "name": "Early Blight (Alternaria solani)",
+          "name": "Early Blight",
           "confidence": "Medium",
-          "reason": "Several dark spots appear on the leaves with subtle concentric rings and yellow margins. These visual symptoms can be consistent with early blight, but a photograph alone cannot confirm the diagnosis."
-        },
-        {
-          "name": "Septoria Leaf Spot",
-          "confidence": "Low",
-          "reason": "Secondary consideration: smaller circular lesions on the lower canopy can occasionally mimic early fungal leaf spotting stages."
+          "reason": "Several dark spots appear on the leaves. These visual symptoms can be consistent with early blight, but a photograph alone cannot confirm the diagnosis."
         }
       ],
       visible_symptoms: [
-        "Brown spots with target-like concentric rings",
-        "Yellow chlorosis surrounding leaf spots",
-        "Premature drying and drooping of lower leaflets"
+        "Brown spots",
+        "Yellowing chlorotic halo around leaf spots",
+        "Leaf curling and lower foliage drooping"
       ],
       possible_causes: [
-        "Excess moisture and water splashing on foliage",
-        "Poor airflow in the lower canopy",
-        "Possible fungal infection (Alternaria species)"
+        "Excess moisture",
+        "Poor airflow",
+        "Possible fungal infection"
       ],
-      watering: "Water strictly at the soil base in the early morning. Never wet the foliage.",
-      sunlight: "6-8 hours of direct full sun daily to dry dew and strengthen stems.",
-      soil: "Rich, well-draining loamy soil with organic mulch layer to prevent soil splash.",
+      watering: "Moderate watering. Water strictly at the soil base without wetting the foliage.",
+      sunlight: "6-8 hours of sunlight",
+      soil: "Rich, well-draining loamy soil with mulch layer to prevent fungal soil splash.",
       recommended_actions: [
-        "Sanitize garden shears with rubbing alcohol and prune off the lowest infected leaves touching the soil.",
-        "Water strictly at the base around the root zone without wetting any leaves.",
-        "Apply a 2-inch organic straw or mulch layer to prevent fungal spores from splashing up from soil.",
-        "Improve spacing between plants to maximize air circulation and sunlight penetration.",
-        "Monitor new upper growth daily to ensure symptoms are not progressing upward."
+        "Check the soil moisture.",
+        "Improve airflow around the plant.",
+        "Avoid wetting the leaves while watering.",
+        "Remove severely damaged leaves if appropriate.",
+        "Monitor new growth for additional symptoms."
       ],
       care_tips: [
-        "Dispose of removed diseased foliage in municipal green waste—never add it to home compost.",
-        "Consider an organic copper-based fungicide or bio-fungicide if wet humid conditions persist."
+        "Dispose of removed diseased foliage in trash—never add to compost.",
+        "Apply organic copper fungicide if wet humid conditions persist."
       ],
-      touch_grass_task: "Grab a pair of clean garden shears, head outside to your plant, and snip off the bottom two diseased leaves right where they meet the stem."
+      touch_grass_task: "Look closely at the new leaves for additional symptoms."
     }
   },
   {
     id: "pest-basil",
-    title: "Basil (Pest Damage / Mites)",
-    subtitle: "Stippling, microscopic chlorotic flecks, curled leaf margins",
+    title: "3. Pest / Stress Symptoms",
+    subtitle: "Sweet Basil (Stippling & sap-sucker damage)",
     type: "pest",
     imageUrl: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop&w=800&q=80",
     analysis: {
@@ -105,39 +100,39 @@ export const DEMO_SAMPLES: DemoSample[] = [
       scientific_name: "Ocimum basilicum",
       plant_confidence: "High",
       health_status: "Needs Attention",
-      health_summary: "The foliage displays pale stippling, light mottled speckles, and mild cupping along leaf margins, which is characteristic of sap-sucking pest feeding activity.",
+      health_summary: "Visible stippling and margin curling suggest the plant is experiencing pest-induced stress.",
       possible_diseases: [
         {
-          "name": "Pest Damage (Spider Mites or Thrips)",
+          "name": "Pest Damage (Spider Mites / Thrips)",
           "confidence": "Medium",
-          "reason": "Fine silvery-yellow stippling and small punctures across leaf surfaces suggest piercing-sucking insect feeding rather than systemic fungal disease."
+          "reason": "Fine silvery-yellow stippling and punctures across foliage indicate piercing-sucking insect feeding."
         }
       ],
       visible_symptoms: [
-        "Tiny pale stippled specks across foliage",
-        "Mild inward leaf margin curling",
-        "Loss of uniform emerald luster on older leaves"
+        "Tiny pale stippled specks",
+        "Leaf curling along margins",
+        "Holes and loss of uniform luster"
       ],
       possible_causes: [
-        "Pest damage from sap-feeding insects",
-        "Dry, low-humidity microclimate around foliage",
-        "Heat stress compounding pest susceptibility"
+        "Pest damage",
+        "Excess moisture or localized dry air",
+        "Nutrient stress"
       ],
-      watering: "Consistent moisture. Keep soil evenly moist but never waterlogged.",
-      sunlight: "6-8 hours of sunlight daily with light afternoon shade if midday heat exceeds 32°C.",
-      soil: "Rich, well-aerated organic potting soil with excellent drainage.",
+      watering: "Moderate watering. Keep soil evenly moist but never soggy.",
+      sunlight: "6-8 hours of sunlight",
+      soil: "Well-aerated potting mix with excellent drainage.",
       recommended_actions: [
-        "Inspect the underside of leaves and leaf nodes with a magnifier for tiny mites or fine webbing.",
-        "Gently spray the plant foliage outdoors with a brisk stream of lukewarm water to dislodge pests.",
-        "Apply an organic cold-pressed neem oil spray or insecticidal soap during the cool evening.",
-        "Isolate the plant from other neighboring indoor herbs to prevent pest cross-contamination.",
-        "Pinch off the top flower buds to encourage the herb to focus energy on healthy vegetative foliage."
+        "Check the soil moisture.",
+        "Improve airflow around the plant.",
+        "Avoid wetting the leaves while watering.",
+        "Spray foliage with a gentle jet of lukewarm water outdoors to dislodge pests.",
+        "Monitor new growth for additional symptoms."
       ],
       care_tips: [
-        "Never apply oil sprays in direct midday sun to prevent phototoxicity and leaf burn.",
-        "Harvest healthy top leaves regularly to encourage bushy side shoots."
+        "Apply cold-pressed neem oil or insecticidal soap in the evening.",
+        "Pinch off flower buds to redirect energy to vegetative growth."
       ],
-      touch_grass_task: "Take your basil pot outdoors into the garden, turn over three lower leaves to inspect for tiny insect specks, and give the foliage a refreshing rinse with the garden hose mist setting."
+      touch_grass_task: "Inspect the undersides of three lower leaves with your fingers for tiny pests, then mist the foliage outside."
     }
   },
   {
