@@ -8,7 +8,6 @@ import {
   Sparkles,
   Footprints,
   ShieldCheck,
-  Server,
   Terminal,
   Layers,
   ArrowRight
@@ -145,42 +144,7 @@ export function GemmaExplainer() {
         </p>
       </div>
 
-      {/* 5. Simple Architecture Diagram */}
-      <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-card space-y-6">
-        <div className="flex items-center gap-2">
-          <Server className="w-5 h-5 text-brand-700" />
-          <h3 className="text-lg font-bold text-stone-900">
-            System Architecture
-          </h3>
-        </div>
-
-        <div className="p-5 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto leading-relaxed border border-stone-800">
-          <pre>{`[User Browser / Mobile]
-       │
-       ▼
- 1. Image Capture & Validation (Type, 10MB limit)
-       │
-       ▼
-[Next.js App Server] ── (POST /api/analyze)
-       │
-       ├── Validate Base64 payload & MIME
-       ├── Sanitize Input & enforce JSON Schema prompt
-       │
-       ▼
-[Gemma Multimodal Vision Engine]
- (Google AI Studio Gemma 3 / OpenRouter / Local Ollama)
-       │
-       ├── Visual Symptom & Pathology Extraction
-       ├── Structured Botanical JSON Synthesis
-       │
-       ▼
-[PlantLens AI Report UI]
-       ├── Plant ID + Health Status + Possible Disease
-       └── 🪴 Touch Grass Task -> "✓ I Did It" Celebration`}</pre>
-        </div>
-      </div>
-
-      {/* 6. Future Improvements */}
+      {/* Future Improvements */}
       <div className="bg-stone-50 rounded-3xl border border-stone-200 p-6 sm:p-8 space-y-4">
         <div className="flex items-center gap-2">
           <Compass className="w-5 h-5 text-stone-700" />

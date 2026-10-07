@@ -37,7 +37,7 @@ export function Header({ onOpenDemo, onScrollToExplainer }: HeaderProps) {
             className="hidden md:flex items-center space-x-1.5 text-xs font-medium text-stone-600 hover:text-brand-700 px-3 py-2 rounded-lg hover:bg-brand-50 transition"
           >
             <Compass className="w-4 h-4 text-brand-600" />
-            <span>Why Gemma &amp; Architecture</span>
+            <span>Why Gemma?</span>
           </button>
 
           <button
