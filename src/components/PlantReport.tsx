@@ -101,7 +101,7 @@ export function PlantReport({ result, imagePreviewUrl, onReset }: PlantReportPro
   const handleShare = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(
-        `PlantCare AI Report for ${result.plant_name}: Status is ${result.health_status}. Analysis by Gemma open-weight AI.`
+        `PlantLens AI Report for ${result.plant_name}: Status is ${result.health_status}. Analysis by Gemma open-weight AI.`
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);

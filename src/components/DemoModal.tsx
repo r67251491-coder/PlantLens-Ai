@@ -48,7 +48,7 @@ export function DemoModal({
             </div>
             <div>
               <h3 className="font-bold text-base text-stone-900">
-                PlantCare AI Interactive Demo
+                PlantLens AI Interactive Demo
               </h3>
               <p className="text-xs text-stone-500">
                 Explore real test cases without needing an API key

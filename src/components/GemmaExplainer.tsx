@@ -42,7 +42,7 @@ export function GemmaExplainer() {
               Why Gemma? Exactly How It Is Used
             </h3>
             <p className="text-sm text-stone-700 leading-relaxed">
-              <strong>Gemma</strong> (specifically Gemma 3 multimodal vision architecture) provides the core reasoning engine for PlantCare AI:
+              <strong>Gemma</strong> (specifically Gemma 3 multimodal vision architecture) provides the core reasoning engine for PlantLens AI:
             </p>
           </div>
         </div>
@@ -141,7 +141,7 @@ export function GemmaExplainer() {
         </div>
 
         <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-2xl">
-          Technology often traps us behind glass screens. PlantCare AI reverses this dynamic: use open-weight vision intelligence to diagnose quickly, then close your laptop, step outside, and connect with living nature.
+          Technology often traps us behind glass screens. PlantLens AI reverses this dynamic: use open-weight vision intelligence to diagnose quickly, then close your laptop, step outside, and connect with living nature.
         </p>
       </div>
 
@@ -174,7 +174,7 @@ export function GemmaExplainer() {
        ├── Structured Botanical JSON Synthesis
        │
        ▼
-[PlantCare AI Report UI]
+[PlantLens AI Report UI]
        ├── Plant ID + Health Status + Possible Disease
        └── 🪴 Touch Grass Task -> "✓ I Did It" Celebration`}</pre>
         </div>

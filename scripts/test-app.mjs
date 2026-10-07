@@ -1,4 +1,4 @@
-// Comprehensive End-to-End Test Suite for PlantCare AI
+// Comprehensive End-to-End Test Suite for PlantLens AI
 // Tests all 7 required cases:
 // 1. Healthy plant
 // 2. Diseased-looking plant
@@ -12,7 +12,7 @@ const BASE_URL = "http://localhost:3000";
 
 async function runTests() {
   console.log("==================================================");
-  console.log("🌿 PlantCare AI — Automated Verification Test Suite");
+  console.log("🌿 PlantLens AI — Automated Verification Test Suite");
   console.log("==================================================");
   let passed = 0;
   let total = 7;

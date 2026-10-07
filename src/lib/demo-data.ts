@@ -198,7 +198,7 @@ export const DEMO_SAMPLES: DemoSample[] = [
       scientific_name: "Non-biological object",
       plant_confidence: "Low",
       health_status: "Unknown",
-      health_summary: "No plant or botanical foliage was detected in this photo. PlantCare AI is specifically trained to analyze leaves, flowers, stems, and potted plants.",
+      health_summary: "No plant or botanical foliage was detected in this photo. PlantLens AI is specifically trained to analyze leaves, flowers, stems, and potted plants.",
       possible_diseases: [],
       visible_symptoms: [
         "Absence of plant tissue, leaves, stems, or chlorophytic cellular structure."
@@ -215,7 +215,7 @@ export const DEMO_SAMPLES: DemoSample[] = [
         "Re-upload the new plant image to receive real-time Gemma analysis."
       ],
       care_tips: [
-        "PlantCare AI analyzes leaves, stems, soil surface, and flower petals."
+        "PlantLens AI analyzes leaves, stems, soil surface, and flower petals."
       ],
       touch_grass_task: "Step away from your desk, walk out your front door or onto your balcony, find the nearest living green plant, and touch a real leaf with your fingers."
     }

@@ -19,7 +19,7 @@ export function Header({ onOpenDemo, onScrollToExplainer }: HeaderProps) {
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-bold text-lg text-stone-900 tracking-tight">PlantCare</span>
+              <span className="font-bold text-lg text-stone-900 tracking-tight">PlantLens</span>
               <span className="text-xs px-2 py-0.5 rounded-full font-semibold bg-brand-100 text-brand-800 border border-brand-200">
                 AI
               </span>

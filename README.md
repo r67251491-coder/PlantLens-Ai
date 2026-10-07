@@ -79,7 +79,7 @@ Using open-weight models like Gemma offers distinct advantages over closed comme
 ## 🪴 Touch Grass Philosophy
 > **Photo → AI insight → Go outside → Care for plant**
 
-In modern software, apps strive to maximize screen time. **PlantCare AI is intentionally engineered to minimize screen time.**
+In modern software, apps strive to maximize screen time. **PlantLens AI is intentionally engineered to minimize screen time.**
 
 The user experience flow:
 ```
@@ -100,7 +100,7 @@ Every analysis ends with:
 When the user steps outside, completes the physical action (such as wiping dust off leaves, inspecting undersides for aphids, or bottom-watering the root ball), they press:
 `### ✓ I Did It`
 
-PlantCare AI rewards them with:
+PlantLens AI rewards them with:
 > **🪴 Nice! You just spent less time on your screen and more time caring for something real.**
 
 ---
@@ -141,7 +141,7 @@ PlantCare AI rewards them with:
                                     │
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        🪴 PlantCare AI Report                          │
+│                        🪴 PlantLens AI Report                          │
 │                                                                        │
 │   • Plant Identification (Common & Scientific Name, Confidence)       │
 │   • Health Status Badge (Healthy / Needs Attention / etc.)             │
@@ -171,8 +171,8 @@ PlantCare AI rewards them with:
 
 ### Step 1: Clone the Repository & Install Dependencies
 ```bash
-git clone https://github.com/your-username/plantcare-ai.git
-cd plantcare-ai
+git clone https://github.com/r67251491-coder/PlantLens-Ai.git
+cd PlantLens-Ai
 npm install
 ```
 
@@ -212,7 +212,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🧪 Testing & Verification
 
-PlantCare AI comes with an automated end-to-end verification test suite covering all 7 critical edge cases:
+PlantLens AI comes with an automated end-to-end verification test suite covering all 7 critical edge cases:
 
 ```bash
 node scripts/test-app.mjs

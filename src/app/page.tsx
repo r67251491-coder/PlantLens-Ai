@@ -100,11 +100,11 @@ export default function Home() {
     setResult(null);
     if (type === "api_failure") {
       setErrorMessage(
-        "Gemma API simulated failure (502 Bad Gateway / Model Overloaded). PlantCare AI cleanly caught this upstream error without crashing."
+        "Gemma API simulated failure (502 Bad Gateway / Model Overloaded). PlantLens AI cleanly caught this upstream error without crashing."
       );
     } else {
       setErrorMessage(
-        "Corrupted file payload rejected. PlantCare AI validated image headers and prevented malformed data from reaching the AI model."
+        "Corrupted file payload rejected. PlantLens AI validated image headers and prevented malformed data from reaching the AI model."
       );
     }
   };
@@ -205,7 +205,7 @@ export default function Home() {
           <span>• Powered by Gemma</span>
         </div>
         <p className="text-[11px] text-stone-400">
-          Disclaimer: PlantCare AI visual assessments are educational tools and do not constitute certified agricultural or pathology diagnostic guarantees.
+          Disclaimer: PlantLens AI visual assessments are educational tools and do not constitute certified agricultural or pathology diagnostic guarantees.
         </p>
       </footer>
 

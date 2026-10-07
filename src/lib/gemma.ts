@@ -1,6 +1,6 @@
 import { PlantAnalysisResult } from "@/types/plant";
 
-const SYSTEM_PROMPT = `You are PlantCare AI, an expert botanical and plant health visual assistant powered by Gemma.
+const SYSTEM_PROMPT = `You are PlantLens AI, an expert botanical and plant health visual assistant powered by Gemma.
 Analyze the user-provided image of a plant or leaf with utmost care, visual precision, and scientific honesty.
 
 CRITICAL INSTRUCTIONS:

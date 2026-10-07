@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PlantCare AI — Plant Health Assistant Powered by Gemma",
+  title: "PlantLens AI — Plant Health Assistant Powered by Gemma",
   description:
     "Upload plant photos for instant health assessment, possible disease diagnosis, organic care advice, and outdoor Touch Grass missions using Gemma open-weight AI.",
   keywords: [
-    "PlantCare AI",
+    "PlantLens AI",
     "Gemma",
     "Open-weight AI",
     "Plant Health",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Touch Grass",
     "Hacktoberfest"
   ],
-  authors: [{ name: "PlantCare AI Team" }],
+  authors: [{ name: "PlantLens AI Team" }],
 };
 
 export const viewport: Viewport = {
